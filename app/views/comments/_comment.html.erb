@@ -1,0 +1,13 @@
+<div class="card bg-light" id="<%= @comment.id %>">
+	<strong><%= @comment.user.email %></strong>
+	<br>
+	<div id="contenido<%= @comment.id %>">
+		<%= @comment.content %>
+	</div>
+	
+	
+	<div class="text-right">
+		<%#= link_to 'Eliminar', post_comment_path(@post,comment), method: :delete, data: { confirm: 'Estás seguro que deseas eliminar el Comentario?', remote: true }, class: 'btn btn-xs btn-danger' %>
+	</div>
+	
+</div>

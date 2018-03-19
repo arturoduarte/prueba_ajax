@@ -1,0 +1,42 @@
+<div class="container">
+	<p id="notice"><%= notice %></p>
+	
+	
+	<h1 class="text-center text-success">Compañias</h1>
+	
+	<div class="card bg-light offset-md-4 py-3" style="max-width: 20rem;">
+		<%= form_with(model: Company.new) do |form| %>
+		<div class="field text-center">
+			<%= form.label 'Nombre' %>
+			<%= form.text_field :name, id: :company_name %>
+		</div>
+		
+		<div class="actions text-center">
+			<%= form.submit 'Crear', class:'btn btn-primary btn-xs' %>
+		</div>
+		<% end %>
+		
+	</div>
+	
+	
+	<br>
+	<%= link_to 'Nueva Compañía', new_company_path, class:'btn btn-success mb-4' %>
+	
+	
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Nombre</th>
+				<th colspan="1"></th>
+				<th>Acciones</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			<%= render  "company", company:'@companies' %>
+		</tbody>
+	</table>
+	
+</div>
+
+

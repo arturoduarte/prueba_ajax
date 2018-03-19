@@ -1,0 +1,49 @@
+<!-- la bandera es al crear -->
+<% if !@bandera.present? %>
+<% @companies.each do |company| %>
+<tr id="<%= company.id %>">
+	<td>
+		<span id="contenido<%= company.id %>">
+			<%= company.name %>
+		</span>
+	</td>
+	<td><%= link_to 'Detalle', company, class:'btn btn-warning' %></td>
+	<td><%= link_to 'Editar', edit_company_path(company), data:{remote: true}, class:'btn btn-info' %></td>
+	<td><%= link_to 'Eliminar', company, method: :delete, data: { confirm: 'Are you sure?', remote: true }, class:'btn btn-danger' %></td>
+</tr>
+<% end %>
+
+<% else  %>
+<tr id="<%= @company.id %>">
+	<td>
+		<span id="contenido<%= @company.id %>">
+			<%= @company.name %>
+		</span>
+	</td>
+	<td><%= link_to 'Detalle', @company, class:'btn btn-warning' %></td>
+	<td><%= link_to 'Editar', edit_company_path(@company), data:{remote: true}, class:'btn btn-info' %></td>
+	<td><%= link_to 'Eliminar', @company, method: :delete, data: { confirm: 'Are you sure?', remote: true }, class:'btn btn-danger' %></td>
+</tr>
+
+<% end  %>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Editar Compañia</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body" id="company_edit">
+				Aqui va el formulario
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
+
